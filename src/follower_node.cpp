@@ -9,15 +9,18 @@
 #include <sensor_msgs/NavSatFix.h>
 #include <mavros_msgs/State.h>
 
-// callback functions
 mavros_msgs::State current_state;
+mavros_msgs::GlobalPositionTarget target_pos;
+bool global_position_received = false;
+
+// callback functions
 void state_cb(const mavros_msgs::State::ConstPtr& msg){
     current_state = *msg;
 }
 
-mavros_msgs::GlobalPositionTarget target_pos;
 // Fixed altitude throughout
 void get_target_alt(const sensor_msgs::NavSatFix::ConstPtr& msg) {
+    global_position_received = true;
     target_pos.altitude = msg->altitude;
 }
 
