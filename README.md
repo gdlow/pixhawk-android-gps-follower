@@ -10,3 +10,9 @@
 1. Build workspace in catkin_ws
 2. Source your devel/setup.bash (or setup.zsh)
 3. `rosrun follower follower_node`
+
+## SSH tunnelling (port forwarding) into serveo.net
+1. `ssh -R 80:localhost:9090 serveo.net` forwards traffic from localhost:9090 to <given-name>.serveo.net:80
+2. Run rosbridge and mavros launch scripts
+3. Have a subscriber listen to <given-name>.serveo.net:80 and publish that data to a local rostopic
+4. Run cpp follower node as usual

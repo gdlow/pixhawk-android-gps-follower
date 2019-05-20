@@ -35,13 +35,13 @@ int main(int argc, char **argv)
     ros::NodeHandle nh;
 
     ros::Subscriber state_sub = nh.subscribe<mavros_msgs::State>
-            ("mavros/state", 10, state_cb);
+            ("/mavros/state", 10, state_cb);
     ros::Subscriber curr_pos_sub = nh.subscribe<sensor_msgs::NavSatFix>
-            ("mavros/global_position/global", 1, get_target_alt);
+            ("/mavros/global_position/raw/fix", 1, get_target_alt);
     ros::Subscriber target_pos_sub = nh.subscribe<sensor_msgs::NavSatFix>
-    		("/android/fix", 10, get_target_pos);
+    		("/mobile/fix", 10, get_target_pos);
     ros::Publisher target_pos_pub = nh.advertise<mavros_msgs::GlobalPositionTarget>
-            ("mavros/setpoint_position/global", 10);
+            ("/mavros/setpoint_position/global", 10);
 
     //the setpoint publishing rate MUST be faster than 2Hz
     ros::Rate rate(10.0);
