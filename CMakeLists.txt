@@ -118,7 +118,10 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+  ${CMAKE_CURRENT_SOURCE_DIR}/../rosbridgecpp
 )
+
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../rosbridgecpp rosbridgecpp)
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
@@ -200,3 +203,5 @@ include_directories(
 
 add_executable(follower_node src/follower_node.cpp)
 target_link_libraries(follower_node ${catkin_LIBRARIES})
+add_executable(cloud_follower_node src/cloud_follower_node.cpp)
+target_link_libraries(cloud_follower_node ${catkin_LIBRARIES} rosbridgecpp)
