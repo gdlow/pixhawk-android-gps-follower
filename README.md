@@ -20,3 +20,7 @@
 ## Geodetic library usage
 - Requires catkin_simple to be cloned into workspace src
 - Build normally, then run echoer, set_reference and conversion_node respectively
+
+## Library dependencies
+- rosbridgecpp: https://github.com/ppianpak/rosbridgecpp
+- catkin_simple: https://github.com/catkin/catkin_simple
