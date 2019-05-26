@@ -14,5 +14,9 @@
 ## SSH tunnelling (port forwarding) into serveo.net
 1. `ssh -R 80:localhost:9090 serveo.net` forwards traffic from localhost:9090 to <given-name>.serveo.net:80
 2. Run rosbridge and mavros launch scripts
-3. Have a subscriber listen to <given-name>.serveo.net:80 and publish that data to a local rostopic
+3. Have a subscriber listen to given-name.serveo.net:80 and publish that data to a local rostopic
 4. Run cpp follower node as usual
+
+## Geodetic library usage
+- Requires catkin_simple to be cloned into workspace src
+- Build normally, then run echoer, set_reference and conversion_node respectively
