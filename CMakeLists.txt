@@ -205,3 +205,24 @@ add_executable(follower_node src/follower_node.cpp)
 target_link_libraries(follower_node ${catkin_LIBRARIES})
 add_executable(cloud_follower_node src/cloud_follower_node.cpp)
 target_link_libraries(cloud_follower_node ${catkin_LIBRARIES} rosbridgecpp)
+add_executable(cloud_echoer_node src/cloud_echoer_node.cpp)
+target_link_libraries(cloud_echoer_node ${catkin_LIBRARIES} rosbridgecpp)
+
+##################
+## Geodetic Lib ##
+##################
+
+find_package(catkin_simple REQUIRED)
+catkin_simple(ALL_DEPS_REQUIRED)
+
+find_package(Eigen REQUIRED)
+include_directories(${Eigen_INCLUDE_DIRS})
+
+cs_add_executable(set_gps_reference_node src/set_gps_reference_node.cpp)
+target_link_libraries(set_gps_reference_node  ${catkin_LIBRARIES})
+
+cs_add_executable(gps_conversion_node src/gps_conversion_node.cpp)
+target_link_libraries(gps_conversion_node  ${catkin_LIBRARIES})
+
+cs_install()
+cs_export()
