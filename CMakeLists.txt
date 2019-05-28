@@ -224,5 +224,9 @@ target_link_libraries(set_gps_reference_node  ${catkin_LIBRARIES})
 cs_add_executable(gps_conversion_node src/gps_conversion_node.cpp)
 target_link_libraries(gps_conversion_node  ${catkin_LIBRARIES})
 
+cs_add_executable(gps_wrtdrone_conversion_node src/gps_wrtdrone_conversion_node.cpp)
+target_link_libraries(gps_wrtdrone_conversion_node  ${catkin_LIBRARIES})
+	
+
 cs_install()
 cs_export()

@@ -1,0 +1,4 @@
+<launch>
+    <node name="cloud_echoer" pkg="follower" type="cloud_echoer_node" />
+    <node name="gps_wrtdrone_conversion" pkg="follower" type="gps_wrtdrone_conversion" />
+</launch>
