@@ -1,5 +1,5 @@
 /**
- * Adapted from geodetic_utils library for only GPS -> NED data
+ * Adapted from geodetic_utils library for only GPS -> ENU data
  * */
 
 #include <ros/ros.h>

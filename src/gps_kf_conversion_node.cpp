@@ -1,5 +1,6 @@
 /**
  * Adapted from geodetic_utils library for only GPS -> ENU data
+ * Requires: set_gps_reference_node to be run
  * */
 
 #include <ros/ros.h>
@@ -10,12 +11,14 @@
 
 geodetic_converter::GeodeticConverter g_geodetic_converter;
 
-ros::Publisher g_gps_position_pub;
+ros::Publisher target_pos_pub;
+ros::Publisher drone_pos_pub;
 
+// ros parameters
 bool g_trust_gps;
 std::string g_frame_id;
 
-void gps_callback(const sensor_msgs::NavSatFixConstPtr& msg) {
+void target_gps_callback(const sensor_msgs::NavSatFixConstPtr& msg) {
     if (msg->status.status < sensor_msgs::NavSatStatus::STATUS_FIX) {
         ROS_WARN_STREAM_THROTTLE(1, "No GPS fix");
         return;
@@ -38,7 +41,33 @@ void gps_callback(const sensor_msgs::NavSatFixConstPtr& msg) {
     position_msg->point.y = y;
     position_msg->point.z = z;
 
-    g_gps_position_pub.publish(position_msg);
+    target_pos_pub.publish(position_msg);
+}
+
+void drone_gps_callback(const sensor_msgs::NavSatFixConstPtr& msg) {
+    if (msg->status.status < sensor_msgs::NavSatStatus::STATUS_FIX) {
+        ROS_WARN_STREAM_THROTTLE(1, "No GPS fix");
+        return;
+    }
+
+    if (!g_geodetic_converter.isInitialised()) {
+        ROS_WARN_STREAM_THROTTLE(1, "No GPS reference point set, not publishing");
+        return;
+    }
+
+    double x, y, z;
+    g_geodetic_converter.geodetic2Enu(msg->latitude, msg->longitude, msg->altitude, &x, &y, &z);
+
+    // Fill up position message
+    geometry_msgs::PointStampedPtr position_msg(
+            new geometry_msgs::PointStamped);
+    position_msg->header = msg->header;
+    position_msg->header.frame_id = g_frame_id;
+    position_msg->point.x = x;
+    position_msg->point.y = y;
+    position_msg->point.z = z;
+
+    drone_pos_pub.publish(position_msg);
 }
 
 int main(int argc, char **argv) {
@@ -64,22 +93,27 @@ int main(int argc, char **argv) {
     } else {
       ROS_INFO(
           "GPS reference not ready yet, use set_gps_reference_node to set it");
-      ros::Duration(0.5).sleep(); // sleep for half a second
+      ros::Duration(0.2).sleep(); // sleep for 0.2s
     }
   } while (!g_geodetic_converter.isInitialised());
 
-  // Show reference point
+  // Show target origin reference point
   double initial_latitude, initial_longitude, initial_altitude;
   g_geodetic_converter.getReference(&initial_latitude, &initial_longitude,
                                     &initial_altitude);
-  ROS_INFO("GPS reference initialized correctly %f, %f, %f", initial_latitude,
+  ROS_INFO("GPS origin initialized correctly %f, %f, %f", initial_latitude,
            initial_longitude, initial_altitude);
 
-  // Initialize publisher
-  g_gps_position_pub =
-      nh.advertise<geometry_msgs::PointStamped>("gps_position", 1);
+  // Initialize target pos publisher
+  target_pos_pub =
+      nh.advertise<geometry_msgs::PointStamped>("/target_position", 1);
 
-  // Subscribe GPS Fix and convert in callback
-  ros::Subscriber gps_sub = nh.subscribe("/android/fix", 1, &gps_callback);
+  // Initialize drone pos publisher
+  drone_pos_pub =
+      nh.advertise<geometry_msgs::PointStamped>("/drone_position", 10);
+
+  // Subscribe to GPS Fixes and convert in callback
+  ros::Subscriber target_sub = nh.subscribe<sensor_msgs::NavSatFix>("/android/fix", 1, &target_gps_callback);
+  ros::Subscriber drone_sub = nh.subscribe<sensor_msgs::NavSatFix>("/mavros/global_position/global", 10, &drone_gps_callback);
   ros::spin();
 }

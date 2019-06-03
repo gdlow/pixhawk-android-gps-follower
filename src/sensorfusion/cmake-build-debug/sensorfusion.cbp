@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="sensorfusion"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sensorfusion">
+				<Option output="/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/libsensorfusion.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 sensorfusion"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sensorfusion/fast">
+				<Option output="/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/libsensorfusion.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 sensorfusion/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/geraldlow/Misc/gdp/sensorfusion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/geraldlow/Misc/gdp/sensorfusion/Commons.h">
+			<Option target="sensorfusion"/>
+		</Unit>
+		<Unit filename="/home/geraldlow/Misc/gdp/sensorfusion/GPSAccKalman.cpp">
+			<Option target="sensorfusion"/>
+		</Unit>
+		<Unit filename="/home/geraldlow/Misc/gdp/sensorfusion/GPSAccKalman.h">
+			<Option target="sensorfusion"/>
+		</Unit>
+		<Unit filename="/home/geraldlow/Misc/gdp/sensorfusion/Kalman.cpp">
+			<Option target="sensorfusion"/>
+		</Unit>
+		<Unit filename="/home/geraldlow/Misc/gdp/sensorfusion/Kalman.h">
+			<Option target="sensorfusion"/>
+		</Unit>
+		<Unit filename="/home/geraldlow/Misc/gdp/sensorfusion/Matrix.cpp">
+			<Option target="sensorfusion"/>
+		</Unit>
+		<Unit filename="/home/geraldlow/Misc/gdp/sensorfusion/Matrix.h">
+			<Option target="sensorfusion"/>
+		</Unit>
+		<Unit filename="/home/geraldlow/Misc/gdp/sensorfusion/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

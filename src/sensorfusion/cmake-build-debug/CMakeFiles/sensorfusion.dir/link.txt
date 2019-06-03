@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsensorfusion.a  CMakeFiles/sensorfusion.dir/GPSAccKalman.cpp.o CMakeFiles/sensorfusion.dir/Kalman.cpp.o CMakeFiles/sensorfusion.dir/Matrix.cpp.o
+/usr/bin/ranlib libsensorfusion.a
