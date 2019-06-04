@@ -32,9 +32,9 @@ double accDev = 0.00004143908;
 void target_pos_callback(const geometry_msgs::PointStamped::ConstPtr& msg) {
     target_x = msg->point.x;
     target_y = msg->point.y;
-    target_z = msg->point.y;
+    target_z = msg->point.z;
     target_pos_received = true;
-    curr_time = ((double) msg->header.stamp.sec) + ((double) (msg->header.stamp.nsec / 1e09));
+    curr_time = ((double) ros::Time::now().sec) + ((double) (ros::Time::now().nsec / 1e09));
     if (first_point_received) {
         target_xVel = (target_x - prev_x) / (curr_time - prev_time);
         target_yVel = (target_y - prev_y) / (curr_time - prev_time);
@@ -60,17 +60,19 @@ void target_pos_callback(const geometry_msgs::PointStamped::ConstPtr& msg) {
 void target_acc_callback(const sensor_msgs::Imu::ConstPtr& msg) {
     target_xAcc = msg->linear_acceleration.x;
     target_yAcc = msg->linear_acceleration.y;
-    double imu_time = ((double) msg->header.stamp.sec) + ((double) (msg->header.stamp.nsec / 1e09));
+    double imu_time = ((double) ros::Time::now().sec) + ((double) (ros::Time::now().nsec / 1e09));
     target_acc_received = true;
     if (kf_initialised) {
         // Update Kalman Filter
         GPSAccKalmanPredict(kf, imu_time, target_xAcc, target_yAcc);
         // Retrieve abs position and velocities from kf
-        filtered_abs_pos.header = msg->header;
+        filtered_abs_pos.header.stamp = ros::Time::now();
+        filtered_abs_pos.header.frame_id = "enu";
         filtered_abs_pos.point.x = GPSAccKalmanGetX(kf);
         filtered_abs_pos.point.y = GPSAccKalmanGetY(kf);
         filtered_abs_pos.point.z = target_z;
-        filtered_abs_vel.header = msg->header;
+        filtered_abs_vel.header.stamp = ros::Time::now();
+        filtered_abs_vel.header.frame_id = "enu";
         filtered_abs_vel.twist.linear.x = GPSAccKalmanGetXVel(kf);
         filtered_abs_vel.twist.linear.y = GPSAccKalmanGetYVel(kf);
         // Publish
@@ -83,11 +85,13 @@ void drone_pos_callback(const geometry_msgs::PointStamped::ConstPtr& msg) {
     // Calculate relative position
     if (kf_initialised) {
         relative_pos.header = msg->header;
+        relative_pos.header.frame_id = "enu";
         relative_pos.point.x = GPSAccKalmanGetX(kf) - msg->point.x;
         relative_pos.point.y = GPSAccKalmanGetY(kf) - msg->point.y;
         relative_pos.point.z = target_z - msg->point.z;
     } else {
         relative_pos.header = msg->header;
+        relative_pos.header.frame_id = "enu";
         relative_pos.point.x = target_x - msg->point.x;
         relative_pos.point.y = target_y - msg->point.y;
         relative_pos.point.z = target_z - msg->point.z;
@@ -119,12 +123,13 @@ int main(int argc, char **argv) {
         rate.sleep();
     }
     ROS_INFO("Target position received");
-    while (ros::ok() && !drone_pos_received) {
-        ROS_INFO_ONCE("Waiting for Drone position...");
-        ros::spinOnce();
-        rate.sleep();
-    }
-    ROS_INFO("Drone position received");
+    // TODO: Commented for testing
+//    while (ros::ok() && !drone_pos_received) {
+//        ROS_INFO_ONCE("Waiting for Drone position...");
+//        ros::spinOnce();
+//        rate.sleep();
+//    }
+//    ROS_INFO("Drone position received");
     while (ros::ok() && !target_acc_received) {
         ROS_INFO_ONCE("Waiting for Target IMU...");
         ros::spinOnce();

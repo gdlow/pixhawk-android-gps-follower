@@ -1,0 +1,9 @@
+<launch>
+	<node name="set_gps_reference" pkg="follower" type="set_gps_reference_node" />
+    <node name="gps_kf_conversion" pkg="follower" type="gps_kf_conversion_node" />
+    <node name="imu_filter" pkg="imu_filter_madgwick" type="imu_filter_node">
+    	<remap from="imu/data_raw" to="android/imu" />
+    	<remap from="imu/mag" to="android/magnetic_field" />
+    </node>
+    <node name="kf" pkg="follower" type="kf_node" />
+</launch>
