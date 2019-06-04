@@ -43,6 +43,12 @@ void gps_callback(const sensor_msgs::NavSatFixConstPtr & msg)
       return;
     }
 
+    // Prevents it from fixing to (0,0) in a launch script
+    if (msg->latitude == 0.0 || msg->longitude == 0.0) {
+      ROS_WARN_STREAM_THROTTLE(1, "No GPS fix");
+      return;
+    }
+
     g_lat_ref += msg->latitude;
     g_lon_ref += msg->longitude;
     g_alt_ref += msg->altitude;

@@ -63,8 +63,8 @@ int main(int argc, char **argv)
     ros::NodeHandle nh;
 
     ros::Publisher gps_pub = nh.advertise<sensor_msgs::NavSatFix>("/android/fix", 2);
-    ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("/imu/data_raw", 10);
-    ros::Publisher mag_pub = nh.advertise<sensor_msgs::MagneticField>("/imu/mag", 10);
+    ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("/android/imu", 10);
+    ros::Publisher mag_pub = nh.advertise<sensor_msgs::MagneticField>("/android/magnetic_field", 10);
 
     rbc.addClient("gps_subscriber");
     rbc.subscribe("gps_subscriber", "/remote_gps", remote_gps_cb);

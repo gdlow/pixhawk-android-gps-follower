@@ -84,13 +84,13 @@ void target_acc_callback(const sensor_msgs::Imu::ConstPtr& msg) {
 void drone_pos_callback(const geometry_msgs::PointStamped::ConstPtr& msg) {
     // Calculate relative position
     if (kf_initialised) {
-        relative_pos.header = msg->header;
+        relative_pos.header.stamp = ros::Time::now();
         relative_pos.header.frame_id = "enu";
         relative_pos.point.x = GPSAccKalmanGetX(kf) - msg->point.x;
         relative_pos.point.y = GPSAccKalmanGetY(kf) - msg->point.y;
         relative_pos.point.z = target_z - msg->point.z;
     } else {
-        relative_pos.header = msg->header;
+        relative_pos.header.stamp = ros::Time::now();
         relative_pos.header.frame_id = "enu";
         relative_pos.point.x = target_x - msg->point.x;
         relative_pos.point.y = target_y - msg->point.y;
@@ -123,13 +123,13 @@ int main(int argc, char **argv) {
         rate.sleep();
     }
     ROS_INFO("Target position received");
-    // TODO: Commented for testing
-//    while (ros::ok() && !drone_pos_received) {
-//        ROS_INFO_ONCE("Waiting for Drone position...");
-//        ros::spinOnce();
-//        rate.sleep();
-//    }
-//    ROS_INFO("Drone position received");
+    // Comment the below for testing
+    while (ros::ok() && !drone_pos_received) {
+        ROS_INFO_ONCE("Waiting for Drone position...");
+        ros::spinOnce();
+        rate.sleep();
+    }
+    ROS_INFO("Drone position received");
     while (ros::ok() && !target_acc_received) {
         ROS_INFO_ONCE("Waiting for Target IMU...");
         ros::spinOnce();

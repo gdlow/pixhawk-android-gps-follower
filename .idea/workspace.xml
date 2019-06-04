@@ -10,6 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c08571c7-99f0-4b35-9e31-4fd74ec4b708" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/launch/follower_kf.launch" beforeDir="false" afterPath="$PROJECT_DIR$/launch/follower_kf.launch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cloud_echoer_node.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cloud_echoer_node.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kf_node.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/kf_node.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -33,11 +35,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kf_node.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+            <state relative-caret-position="346">
+              <caret line="130" column="5" lean-forward="true" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cloud_echoer_node.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1051">
+              <caret line="76" column="25" lean-forward="true" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gps_wrtdrone_conversion_node.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="33" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -86,6 +106,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="683" />
     <option name="y" value="34" />
     <option name="width" value="683" />
     <option name="height" value="734" />
@@ -102,6 +123,11 @@
             <path>
               <item name="follower" type="b2602c69:ProjectViewProjectNode" />
               <item name="follower" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="follower" type="b2602c69:ProjectViewProjectNode" />
+              <item name="follower" type="462c0819:PsiDirectoryNode" />
+              <item name="launch" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="follower" type="b2602c69:ProjectViewProjectNode" />
@@ -146,16 +172,15 @@
       <updated>1558876944975</updated>
       <workItem from="1558876946541" duration="2866000" />
       <workItem from="1559549741005" duration="5185000" />
-      <workItem from="1559571889152" duration="20739000" />
+      <workItem from="1559571889152" duration="22197000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28790000" />
+    <option name="totallyTimeSpent" value="30248000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="34" width="1366" height="734" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18731117" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -189,24 +214,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cloud_echoer_node.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="76" column="25" lean-forward="true" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gps_conversion_node.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gps_wrtdrone_conversion_node.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="33" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -217,24 +228,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gps_kf_conversion_node.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/follower_node.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="66" column="48" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/set_gps_reference_node.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -250,10 +247,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/set_gps_reference_node.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/kf_node.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+        <state relative-caret-position="346">
+          <caret line="130" column="5" lean-forward="true" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gps_wrtdrone_conversion_node.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="33" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gps_kf_conversion_node.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/launch/test_kf.launch">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cloud_echoer_node.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1051">
+          <caret line="76" column="25" lean-forward="true" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
         </state>
       </provider>
     </entry>
