@@ -27,7 +27,7 @@ bool target_acc_received = false; // target_acc_callback
 bool drone_pos_received = false; // drone_pos_callback
 
 double posDev = 1.49010849;
-double accDev = 0.00004143908;
+double accDev = 0.00004197093;
 
 void target_pos_callback(const geometry_msgs::PointStamped::ConstPtr& msg) {
     target_x = msg->point.x;
