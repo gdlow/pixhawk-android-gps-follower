@@ -1,6 +1,4 @@
 <launch>
     <node name="cloud_echoer" pkg="follower" type="cloud_echoer_node" />
-    <node name="gps_wrtdrone_conversion" pkg="follower" type="gps_wrtdrone_conversion_node">
-    	<remap from="/mavros/global_position/global" to="/mavros/global_position/raw/fix" />
-    </node>
+    <node name="gps_wrtdrone_conversion" pkg="follower" type="gps_wrtdrone_conversion_node" />
 </launch>

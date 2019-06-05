@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
   ros::Rate rate(10);
 
   // Subscribe to Drone GPS Data for reference LLA
-  ros::Subscriber read_gps_sub_ = nh.subscribe<sensor_msgs::NavSatFix>("/mavros/global_position/global",10, &drone_ref_callback);
+  ros::Subscriber read_gps_sub_ = nh.subscribe<sensor_msgs::NavSatFix>("/mavros/global_position/global", 10, &drone_ref_callback);
   
   if (!connection) ROS_INFO("Waiting for GPS reference parameters...");
   while(!connection){
@@ -84,9 +84,9 @@ int main(int argc, char **argv) {
 
   // Initialize publisher
   g_gps_position_pub =
-      nh.advertise<geometry_msgs::PointStamped>("/gps_wrtdrone_position", 1);
+      nh.advertise<geometry_msgs::PointStamped>("/gps_wrtdrone_position", 10);
 
   // Subscribe GPS Fix and convert in callback
-  ros::Subscriber gps_sub = nh.subscribe("/android/fix", 1, &gps_callback);
+  ros::Subscriber gps_sub = nh.subscribe("/android/fix", 10, &gps_callback);
   ros::spin();
 }
