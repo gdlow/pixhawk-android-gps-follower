@@ -108,8 +108,8 @@ int main(int argc, char **argv) {
 
     // subscribers
     ros::Subscriber target_pos_sub = nh.subscribe<geometry_msgs::PointStamped>("/target_position", 1, &target_pos_callback);
-    ros::Subscriber target_acc_sub = nh.subscribe<sensor_msgs::Imu>("/imu/data", 10, &target_acc_callback);
-    ros::Subscriber drone_pos_sub = nh.subscribe<geometry_msgs::PointStamped>("/drone_position", 10, &drone_pos_callback);
+    ros::Subscriber target_acc_sub = nh.subscribe<sensor_msgs::Imu>("/imu/data", 1, &target_acc_callback);
+    ros::Subscriber drone_pos_sub = nh.subscribe<geometry_msgs::PointStamped>("/drone_position", 1, &drone_pos_callback);
 
     // publishers (all at 10Hz)
     filtered_target_abs_pos_pub = nh.advertise<geometry_msgs::PointStamped>("/filtered_target_abs_position", 10);

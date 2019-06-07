@@ -4,7 +4,7 @@
     <node name="imu_filter" pkg="imu_filter_madgwick" type="imu_filter_node">
     	<remap from="imu/data_raw" to="android/imu" />
     	<remap from="imu/mag" to="android/magnetic_field" />
-    	<param name="world_frame" type="str" value="nwu" />
+    	<param name="world_frame" type="str" value="enu" />
     </node>
     <node name="kf" pkg="follower" type="kf_node" />
 </launch>
